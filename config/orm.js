@@ -1,9 +1,9 @@
 // Import MySQL connection.
-var connection = require("../config/connection.js");
+var connection = require("./connection.js");
 
 var orm = {
     selectAll : function (cb) {
-        connection.query("SLECT * FROM burgers", function (error , results){
+        connection.query("SELECT * FROM burgers", function (error , results){
             if (error) throw error
             cb(results)
         })
@@ -17,7 +17,7 @@ var orm = {
     },
 
     updateOne: function (burger, cb) {
-        connection.query ("UPDATE  burgers SET devoured = ? WHERE id ?", [burger.devoured , burger.id], function (error, results, fields){
+        connection.query ("UPDATE  burgers SET devoured = ? WHERE id = ?", [burger.devoured , burger.id], function (error, results){
             if (error ) throw error;
             cb(burger)
         });

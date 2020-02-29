@@ -1,1 +1,68 @@
+ <div class="jumbotron" style="text-align: center">
+  <h1 class="display-4">The Burger List</h1>
+  <img  src="../assets/img/burger.png" alt="Burger" >
  
+  <br>
+  <input type="text" name="burgerName" id="burgerName" placeholder="Enter Burger Name">
+  <input type="submit" class="newBurger btn-success">
+</div>
+<div class="container">
+  <div class="grid">
+    <div class="row">
+      <div class="col">
+        <h1>Uneaten</h1>
+        <ul class="uneaten list-group">
+          {{#each burgers}} {{#unless devoured}}
+          <li class="burger{{id}} list-group-item" data-id={{id}}>{{burger_name}}
+            <button class="btn-primary devour" data-id={{id}}>Devour</button>
+          </li> {{/unless}} {{/each}}
+        </ul>
+      </div>
+      <div class="col">
+        <h1>Eaten</h1>
+        <ul class="eaten list-group">
+          {{#each burgers}} {{#if devoured}}
+          <li class="burger{{id}} list-group-item" data-id={{id}}>{{burger_name}}
+          </li> {{/if}} {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).on("click", '.devour', function (e) {
+    var id = $(this).data("id")
+    console.log(id)
+    $.ajax({
+      url: '/update/' + id,
+      method: 'put',
+      data: { id: id, devoured: 1 },
+      success: function (res) {
+        console.log("updated, response: ")
+        var eatenBurger = $(`.burger${id}`);
+        eatenBurger.remove()
+        eatenBurger.children().remove()
+        $('.eaten').append(eatenBurger)
+      }
+    })
+  })
+  $(document).on("click", '.newBurger', function (e) {
+    e.preventDefault()
+    var burger_name = $('#burgerName').val()
+    $.ajax({
+      url: '/',
+      method: 'post',
+      data: { burger_name: burger_name, devoured: 0 },
+      success: function (res) {
+        console.log(res)
+        $(".uneaten").append(
+          `<li class="burger${res[1]} list-group-item" data-id=${res[1]}>${res[0].burger_name}
+              <button class="devour btn-primary" data-id=${res[1]}>Devour</button>
+            </li>`
+        )
+      }
+    })
+    $('#burgerName').val('')
+  })
+</script>
