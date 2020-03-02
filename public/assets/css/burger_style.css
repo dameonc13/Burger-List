@@ -1,0 +1,39 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-image: url(/assets/img/table.jpg);
+}
+
+body {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #ccc;
+
+}
+
+body {
+  background-size: cover;
+  color : white;
+}
+
+img{
+
+    height: 250px;
+    width: 250px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: lightskyblue;
+  color: white;
+  text-align: center;
+}
+/********************************************
+ Additional styles for the explanation boxes 
+*********************************************/

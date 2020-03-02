@@ -1,20 +1,16 @@
- <div class="jumbotron" style="text-align: center">
-  <h1 class="display-4">The Burger List</h1>
-  <img  src="/assets/img/burger.png" alt="Burger" >
- 
-  <br>
-  <input type="text" name="burgerName" id="burgerName" placeholder="Enter Burger Name">
-  <input type="submit" class="newBurger btn-success">
-</div>
 <div class="container">
   <div class="grid">
     <div class="row">
       <div class="col">
         <h1>Uneaten</h1>
-        <ul class="uneaten list-group">
+        <ul class="uneaten list-group ">
           {{#each burgers}} {{#unless devoured}}
-          <li class="burger{{id}} list-group-item" data-id={{id}}>{{burger_name}}
-            <button class="btn-primary devour" data-id={{id}}>Devour</button>
+          <li class="burger{{id}} list-group-item list-group-item-dark text-center" data-id={{id}}>
+            <div class="row ">
+              <div class="col-md-6">{{burger_name}}</div>
+              <div class="col-md-6"> <button class="devour" data-id={{id}}><i class="fas fa-utensils"></i></button> 
+              </div>
+            </div>
           </li> {{/unless}} {{/each}}
         </ul>
       </div>
@@ -22,7 +18,9 @@
         <h1>Eaten</h1>
         <ul class="eaten list-group">
           {{#each burgers}} {{#if devoured}}
-          <li class="burger{{id}} list-group-item" data-id={{id}}>{{burger_name}}
+          <li class="burger{{id}} list-group-item text-center" data-id={{id}}>
+            <div class="row">
+              <div class="col-md-12">{{burger_name}}</div>
           </li> {{/if}} {{/each}}
         </ul>
       </div>
@@ -57,9 +55,9 @@
       success: function (res) {
         console.log(res)
         $(".uneaten").append(
-          `<li class="burger${res[1]} list-group-item" data-id=${res[1]}>${res[0].burger_name}
-              <button class="devour btn-primary" data-id=${res[1]}>Devour</button>
-            </li>`
+          `<li class="burger{{id}} list-group-item list-group-item-dark" data-id={{id}}> <div class = "row"><div class ="col-md-6">{{burger_name}}</div>
+         <div class = "col-md-6">   <button class=" devour" data-id={{id}}> "<i class="fas fa-utensils"></i></button></div></div>
+          </li>`
         )
       }
     })
