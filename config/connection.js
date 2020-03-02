@@ -2,6 +2,8 @@
 var mysql = require("mysql");
 const user = require('../user.js');
 
+
+
 var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
