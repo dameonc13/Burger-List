@@ -3,21 +3,18 @@ html, body {
   margin: 0;
   padding: 0;
 }
-body{
-  background-image: url(/assets/img/table.jpg);
-}
 
-body {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-color: #ccc;
 
-}
-
-body {
+body { 
+  background: url(/assets/img/table.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
+  padding-bottom: 60px;
   
 }
+
 
 img{
 
@@ -26,18 +23,22 @@ img{
 }
 
 .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: lightskyblue;
+  position: fixed;;
+  bottom:0;
+  width:100%;
+  background:#6cf;
   color: white;
   text-align: center;
 }
+
 
 
 .devour,
 .delete {
   float: right;
 
+}
+
+img{
+  content: url(/assets/img/hamburger.png);
 }
