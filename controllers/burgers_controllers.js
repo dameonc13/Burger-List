@@ -26,6 +26,12 @@ router.put('/update/:id', function(req, res){
     })
 })
 
+router.delete('/update/:id', function(req, res){
+    burger.deleteOne(req.body , function(data){
+        res.send(data)
+    })
+})
+
 router.get('*', function(req ,res){
     res.redirect('/')
 })

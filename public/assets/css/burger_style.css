@@ -16,7 +16,7 @@ body {
 
 body {
   background-size: cover;
-  color : white;
+  
 }
 
 img{
@@ -34,6 +34,10 @@ img{
   color: white;
   text-align: center;
 }
-/********************************************
- Additional styles for the explanation boxes 
-*********************************************/
+
+
+.devour,
+.delete {
+  float: right;
+
+}

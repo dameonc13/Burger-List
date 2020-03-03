@@ -16,6 +16,12 @@ var burger = {
         orm.updateOne(burger, function (res){
             cb(res)
         })
+    },
+
+    deleteOne : function (burger, cb){
+        orm.deleteOne(burger, function (res){
+            cb(res)
+        })
     }
 }
 

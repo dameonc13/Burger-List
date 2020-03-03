@@ -21,6 +21,13 @@ var orm = {
             if (error ) throw error;
             cb(burger)
         });
+    },
+
+    deleteOne: function (burger, cb) {
+        connection.query ("DELETE FROM burgers  WHERE id = ?", [ burger.id], function (error, results){
+            if (error ) throw error;
+            cb(burger)
+        });
     }
 
 }
