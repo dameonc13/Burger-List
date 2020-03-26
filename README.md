@@ -7,7 +7,9 @@ An app that uses Node.js and MYSQL on the backend to show of CRUD (Create Read U
 Some of the tech I used to create this project.
 
 SQL - Database
+
 NodeJS - Server-Side Code
+
 Express - Server Routing and Management
 
 # Start your own project
