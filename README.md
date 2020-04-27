@@ -2,6 +2,8 @@
 
 An app that uses Node.js and MYSQL on the backend to show of CRUD (Create Read Update and Delete) actions
 
+<img src="public/assets/img/ReadMeImg.PNG" alt="Burger">
+
 # Tech Used
 
 Some of the tech I used to create this project.
